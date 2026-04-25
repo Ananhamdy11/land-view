@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #f4843b;
+  --color-brand-dark: #1c0503;
+  --color-brand-neutral: #d3d3d3;
+  --color-brand-secondary: #9d623e;
+  --color-brand-text-secondary: #a3a3a3;
+  --color-brand-accent: #e69562;
+  --color-brand-deep: #572d15;
+}
+
+:root {
+  --primary: #f4843b;
+  --dark: #1c0503;
+  --neutral: #d3d3d3;
+  --secondary: #9d623e;
+  --text-secondary: #a3a3a3;
+  --accent: #e69562;
+  --deep-brown: #572d15;
+}
+
+html {
+  scroll-behavior: smooth;
+  direction: rtl;
+}
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background-color: #1c0503;
+  color: #ffffff;
+}
+
+/* Sophisticated Dark Theme Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #f4843b 0%, #9d623e 100%);
+}
+
+.geometric-bg {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(244, 132, 59, 0.08) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.line-accent {
+  height: 2px;
+  background: linear-gradient(to left, #f4843b, transparent);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #ffffff 50%, #f4843b 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(2deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+.float-anim {
+  animation: float 6s ease-in-out infinite;
+}
