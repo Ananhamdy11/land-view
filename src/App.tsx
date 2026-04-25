@@ -169,15 +169,21 @@ export default function App() {
               initial={{ opacity: 0, x: 300 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 300 }}
-              className="fixed inset-0 bg-white z-40 lg:hidden flex flex-col p-8 pt-24"
+              className="fixed inset-0 bg-brand-dark/95 backdrop-blur-xl z-40 lg:hidden flex flex-col p-8 pt-24"
             >
+              <button 
+                onClick={() => setIsMenuOpen(false)}
+                className="absolute top-8 left-8 p-2 glass rounded-xl text-white hover:bg-white/10 transition-colors"
+              >
+                <X size={24} />
+              </button>
               <div className="flex flex-col gap-6">
                 {navLinks.map((link) => (
                   <a
                     key={link.title}
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-2xl font-black border-b border-brand-neutral/30 pb-2 hover:text-brand-primary"
+                    className="text-xl font-black border-b border-brand-neutral/30 pb-2 hover:text-brand-primary"
                   >
                     {link.title}
                   </a>
@@ -706,7 +712,7 @@ export default function App() {
       </footer>
 
       {/* Floating Buttons */}
-      <div className="fixed bottom-8 left-8 z-100 flex flex-col gap-4">
+      <div className={`fixed bottom-8 left-8 z-30 flex flex-col gap-4 transition-opacity duration-300 ${isMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <motion.a
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -717,14 +723,6 @@ export default function App() {
         >
           <MessageCircle size={32} />
         </motion.a>
-        <motion.button
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="w-16 h-16 bg-brand-dark text-white border border-white/20 rounded-full flex items-center justify-center shadow-2xl backdrop-blur-md"
-        >
-          <ArrowUpRight size={32} />
-        </motion.button>
       </div>
 
     </div>
